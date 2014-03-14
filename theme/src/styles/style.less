@@ -1,0 +1,405 @@
+@import "mixins";
+@import "animations";
+
+@background_color : #2C2F36;
+
+
+/*
+Base Styles
+--
+*/
+html {
+    background: @background_color;
+    background-position: center;
+}
+
+html,
+body {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #000;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 1.45em;
+    line-height: 1.5em;
+    text-align: center;
+    color: #FFF;
+    margin: 0;
+    font-weight: normal;
+}
+
+
+/*
+Helpers
+--
+*/
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/*
+Main Styles
+--
+*/
+.wrapper {
+    margin: 0 auto;
+    width: 500px;
+}
+
+/*
+Breadcrumb Styles
+--
+*/
+.breadcrumbs-wrapper {
+    height: 30px;
+    line-height: 27px;
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    color: #FFF;
+    background: #23262B;
+    overflow: hidden;
+}
+
+    .breadcrumb {
+        color: #FFF;
+        opacity: 0.25;
+        font-size: 1em;
+        line-height: 31px;
+        padding: 0 10px 0 14px;
+        float: left;
+    }
+
+    a.breadcrumb:hover {
+        opacity: 1;
+    }
+
+    .breadcrumb-divider {
+        width: 2px;
+        height: 40px;
+        float: left;
+        background: @background_color;
+        text-indent: -999px;
+        .rotate(20deg);
+    }
+
+/*
+Directory Animations
+--
+*/
+.directory {
+    .animated;
+
+
+    .seo-bullshit {
+        opacity: 0;
+    }
+
+    &.show {
+        .seo-bullshit {
+            opacity: 0.15;
+
+            &:hover {
+                .transition(opacity 50ms);
+                opacity: 1;
+            }
+        }
+    }
+
+    &.animateOut {
+        .seo-bullshit {
+            opacity: 0;
+        }
+    }
+}
+
+    .fade {
+        opacity: 0;
+        .transition(opacity 200ms ease-in-out);
+
+        &.show {
+            opacity: 1;
+        }
+
+        &.animateOut {
+            opacity: 0;
+        }
+    }
+
+    .swipeFromRight {
+        .directory-header,
+        .directory-listing {
+            .transition(all 150ms ease-in-out);
+            .translate(150px, 0);
+            opacity: 0;
+        }
+
+        .directory-header {
+            .transition-delay(50ms);
+        }
+
+        &.show {
+            .directory-header,
+            .directory-listing {
+                .translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        &.animateOut {
+            .directory-header,
+            .directory-listing {
+                .translate(-150px, 0);
+                opacity: 0;
+            }
+        }
+    }
+
+    .swipeFromLeft {
+        .directory-header,
+        .directory-listing {
+            .transition(all 150ms ease-in-out);
+            .translate(-150px, 0);
+            opacity: 0;
+        }
+        .directory-header {
+            .transition-delay(50ms);
+        }
+
+        &.show {
+            .directory-header,
+            .directory-listing {
+                .translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        &.animateOut {
+            .directory-header,
+            .directory-listing {
+                .translate(150px, 0);
+                opacity: 0;
+            }
+        }
+    }
+
+
+/*
+Directory Styles
+--
+*/
+.directory-header {
+    margin: 80px 10px 35px;
+}
+
+    .logo {
+        margin: 0 auto;
+        display: block;
+    }
+
+.directory-listing {
+    background: #FFF;
+    border-radius: 3px;
+    margin: 0 auto 100px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+    .listing {
+        color: #000;
+        display: block;
+        padding: 0 15px;
+        line-height: 35px;
+        position: relative;
+        outline: none; // Prevent outlines when tabbing.
+    }
+
+    .listing.active {
+        background: #348FDB;
+        color: #FFF;
+
+        .listing-file-size {
+            color: #6DB2EC;
+        }
+    }
+
+    .listing:active {
+        background: #4695d7;
+        color: #F7F7F7;
+    }
+
+        .listing-file-size {
+            color: #AFAFAF;
+        }
+
+
+/*
+Format Styling
+--
+*/
+.format:before {
+    content: "";
+    display: inline-block;
+    background: #c9c9c9;
+    border-radius: 100%;
+    width: 5px;
+    height: 5px;
+    top: -2px;
+    margin-right: 6px;
+    position: relative;
+}
+
+.format.folder:before {
+    background-color: none;
+    width: 5px;
+    height: 9px;
+    border-radius:0;
+    background:url('../images/chevron.png') 0 -9px no-repeat;
+    background-size:5px 18px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -5px;
+    opacity: 0.2;
+}
+.active.format.folder:before {
+    background-position: 0 0;
+    opacity: 1;
+}
+
+// Illustrator Files
+.format.ai:before {
+    background-color: #FE8C34;
+}
+
+// Photoshop Files
+.format.psd:before {
+    background-color: #40D3F8;
+}
+
+// TODO:
+// Add more file formats or kill the two above.
+
+
+/*
+Empty Directory Listings
+--
+*/
+.empty-folder-notice {
+    text-align: center;
+    padding:20px 30px;
+}
+    .empty-folder-notice p {
+        font-size: 15px;
+        color: #000;
+        margin: 0;
+    }
+
+    .empty-folder-notice img {
+        width: 100%;
+        margin: 20px 0 0 0;
+        height: auto;
+        border-radius: 3px;
+        overflow: hidden;
+        display: block;
+    }
+
+
+/*
+Cat Link
+--
+*/
+.seo-bullshit {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #FFF;
+    opacity: 0;
+    cursor: pointer;
+    background: none;
+    border:none;
+    display: block;
+    margin: 100px auto;
+    outline: none;
+    .transition(opacity 300ms ease-in-out);
+}
+
+
+/*
+No javascript notice
+--
+*/
+.no-js-notice {
+    display: block;
+    max-width: 350px;
+    height: 75px;
+    padding: 30px 20px;
+    line-height: 20px;
+    border-radius: 3px;
+    background: #FFF;
+    text-align: center;
+    font-size: 1.1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -67px 0 0 -195px;
+
+    &:before {
+        content : "!";
+        font-weight: bold;
+        width: 25px;
+        margin: 0 auto 10px;
+        height: 25px;
+        font-size: 16px;
+        color: #802528;
+        line-height: 26px;
+        border-radius: 25px;
+        display: block;
+        background: #e65054;
+    }
+}
+
+
+/*
+Small Screen Adjustments
+--
+*/
+@media only screen and (max-width:700px) {
+    .breadcrumbs-wrapper {
+        display: none;
+    }
+
+    .listing {
+        line-height: 50px;
+    }
+
+    .directory-header {
+        margin-top: 40px;
+    }
+
+    .wrapper {
+        width: 95%;
+    }
+}

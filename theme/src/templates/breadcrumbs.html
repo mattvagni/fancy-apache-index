@@ -1,0 +1,14 @@
+<div class="breadcrumbs-wrapper">
+    <% for (var i = 0; i < breadcrumbs.length; i++) { var breadcrumb = breadcrumbs[i];%>
+        <% if (breadcrumb.link === window.location.href) { %>
+            <div class="breadcrumb">
+                <%= breadcrumb.name %>
+            </div>
+        <% } else { %>
+            <a class="breadcrumb" href="<%= breadcrumb.link %>">
+                <%= breadcrumb.name %>
+            </a>
+        <% } %>
+        <span class="breadcrumb-divider">/</span>
+    <% }; %>
+</div>

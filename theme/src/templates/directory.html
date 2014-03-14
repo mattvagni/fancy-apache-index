@@ -1,0 +1,36 @@
+<div class="directory wrapper">
+
+    <div class="directory-header">
+    <% if (title) { %>
+        <h1><%= title %></h1>
+    <% } else { %>
+        <img src="/theme/build/images/logo.png" class="logo" width="44" height="40">
+    <% } %>
+    </div>
+
+    <div class="directory-listing">
+
+        <% if (folders.length) { %>
+
+            <% for (var i = 0; i < folders.length; i++) { var folder = folders[i]; %>
+                <a class="listing format <%= folder.format %>" href="<%= folder.link %>">
+                    <%= folder.name %>
+
+                    <% if (folder.fileSize){ %>
+                        <span class="listing-file-size"><%= folder.fileSize %></span>
+                    <% } %>
+                </a>
+            <% }; %>
+
+        <% } else { %>
+
+            <div class="empty-folder-notice">
+                <p>This folder is empty :(</p>
+                <img class="r2d2" src="http://media2.giphy.com/media/n7Kv7tLf2UzMk/200.gif">
+            </div>
+
+        <% } %>
+    </div>
+
+    <button class="seo-bullshit"><%= seoBullshit %></button>
+</div>

@@ -1,0 +1,45 @@
+.animated {
+    -webkit-animation-duration: 1s;
+       -moz-animation-duration: 1s;
+         -o-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+       -moz-animation-fill-mode: both;
+         -o-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+/*
+Bounce Animation Keyframes
+*/
+@topRange : -15px;
+@bottomRange : -15px;
+
+@-webkit-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+    40% {-webkit-transform: translateY(@topRange);}
+    60% {-webkit-transform: translateY(@bottomRange);}
+}
+@-moz-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+    40% {-moz-transform: translateY(@topRange);}
+    60% {-moz-transform: translateY(@bottomRange);}
+}
+@-o-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+    40% {-o-transform: translateY(@topRange);}
+    60% {-o-transform: translateY(@bottomRange);}
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(@topRange);}
+    60% {transform: translateY(@bottomRange);}
+}
+
+.bounce {
+    -webkit-animation-name: bounce;
+    -moz-animation-name: bounce;
+    -o-animation-name: bounce;
+    animation-name: bounce;
+}
+

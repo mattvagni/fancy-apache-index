@@ -5,7 +5,7 @@ Options +Indexes
 IndexOptions +FancyIndexing +IgnoreCase +FoldersFirst +XHTML +HTMLTable +SuppressRules +SuppressDescription +NameWidth=*
 
 # HIDE /theme DIRECTORY
-IndexIgnore .htaccess /theme .dropbox Icon* favicon.ico
+IndexIgnore .htaccess /theme favicon.ico
 
 # THEME FILES
 HeaderName /theme/build/apache-header.html

@@ -10,6 +10,8 @@ How to 'Install'
 --
 To install just drag and drop the `theme` and `.htaccess` file in your root directory that apache is serving. You must have apache running but shouldn't need to do anything special since it's only dependency is  [Apache's mod_autoindex module](http://httpd.apache.org/docs/2.2/mod/mod_autoindex.html) which is part of the the Apache base modules anyways.
 
+If you would like to use a favicon, the theme ignores it so you can add it within the root directory without it showing up in your browsable directory listing.
+
 
 How to contribute/customize stuff
 --

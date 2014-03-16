@@ -1,0 +1,13 @@
+# ENABLE INDEXING
+Options +Indexes
+
+# INDEX OPTIONS
+IndexOptions +FancyIndexing +IgnoreCase +FoldersFirst +XHTML +HTMLTable +SuppressRules +SuppressDescription +NameWidth=*
+
+# HIDE /theme DIRECTORY
+IndexIgnore .htaccess /theme .dropbox Icon* favicon.ico
+
+# THEME FILES
+HeaderName /theme/build/apache-header.html
+ReadmeName /theme/build/apache-footer.html
+IndexStyleSheet "/theme/build/styles/style.css"

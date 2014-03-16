@@ -66,12 +66,11 @@
     */
     function getRandomBullshit() {
         var texts = [
-            "Miyon, this is for you",
             "Improve your SEO",
             "How to find lots of cat's with this one weird trick",
             "Hot local cats",
             "25 SEO resolutions for this year",
-            "KATZ"
+            "Top 50 SEO friendly cats"
         ];
 
         return texts[Math.floor(Math.random()*texts.length)];

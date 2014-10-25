@@ -281,7 +281,12 @@
     */
     function routeTo(path, pushState){
 
-        if (path === currentPath && !firstPageLoad){
+        console.log({
+            "Is path == currentPath" : path == currentPath,
+            "Is first page load?" : firstPageLoad
+        });
+
+        if (path === currentPath & !firstPageLoad){
             // If we are trying to load the page we are on
             // and this isn't the first page load.
             bounceDirectory();
@@ -427,11 +432,10 @@
     Popstate event handler. I know right?!
     */
     function onPopstate(event){
-        // To ignore the first page load 'pop' we basically don't do anything
-        // on the first page load.
         if (!firstPageLoad){
             routeTo(window.location.pathname);
         }
+
         firstPageLoad = false;
     }
 
